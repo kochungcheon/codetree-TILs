@@ -4,12 +4,12 @@ public class Main {
         // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int ans = 0;
+        int ans = 1;
     
         int s = 1;
         int e = 2;
         int tmp = s + e;
-        while (e >= s && n >= e) {
+        while (e >= s && n > e) {
             if (tmp == n) {
                 ans++;
                 e++;
