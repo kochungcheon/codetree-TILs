@@ -12,14 +12,14 @@ public class Main {
 
         int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-        int[] num = new int[1000001];
+        int[] num = new int[1000002];
         
         for (int a : arr) {
-            num[a]++;
+            num[a+1]++;
         }
 
-        int[] prefix = new int[1000002];
-        for (int i=1; i<1000001; i++) {
+        int[] prefix = new int[1000003];
+        for (int i=1; i<1000002; i++) {
             prefix[i] = num[i] + prefix[i-1];
         }
 
@@ -27,7 +27,7 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int s = Integer.parseInt(st.nextToken());
             int e = Integer.parseInt(st.nextToken());
-            System.out.println(prefix[e] - prefix[s-1]);
+            System.out.println(prefix[e+1] - prefix[s]);
         }    
     }
 }
