@@ -15,12 +15,12 @@ public class Main {
         int[] num = new int[1000001];
         
         for (int a : arr) {
-            num[a-1]++;
+            num[a]++;
         }
 
         int[] prefix = new int[1000002];
-        for (int i=0; i<1000001; i++) {
-            prefix[i+1] = num[i] + prefix[i];
+        for (int i=1; i<1000001; i++) {
+            prefix[i] = num[i] + prefix[i-1];
         }
 
         for (int i=0; i<Q; i++) {
