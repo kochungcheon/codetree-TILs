@@ -12,9 +12,9 @@ public class Main {
         int k = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
 
-        int[] count = new int[n+1];
+        int[] count = new int[n];
         for (int i=0; i<b; i++) {
-            count[Integer.parseInt(br.readLine())]--;
+            count[Integer.parseInt(br.readLine())-1]--;
         }
 
         int[] prefix = new int[n+1];
