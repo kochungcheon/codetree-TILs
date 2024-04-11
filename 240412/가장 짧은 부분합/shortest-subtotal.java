@@ -11,13 +11,13 @@ public class Main {
         int S = Integer.parseInt(st.nextToken());
         int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-        int ans = 100001;
+        int ans = n+1;
 
         int total = 0;
 
         int s = 0;
         int e = 0;
-        while (n > s && n > e) {
+        while (n > s) {
             total += arr[s];
             while (total >= S) {
                 ans = Math.min(s - e + 1, ans);
@@ -26,6 +26,10 @@ public class Main {
             }
             s++;
         }
-        System.out.println(ans);
+        if (ans == n+1) {
+            System.out.println(-1); 
+        } else {
+            System.out.println(ans);
+        }
     }
 }
