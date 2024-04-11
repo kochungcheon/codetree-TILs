@@ -8,23 +8,24 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
     
         int n = Integer.parseInt(st.nextToken());
-        int S = Integer.parseInt(st.nextToken());
+        int s = Integer.parseInt(st.nextToken());
         int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
         int ans = n+1;
 
-        int total = 0;
+        int R = -1;
+        int cnt = 0;
 
-        int s = 0;
-        int e = 0;
-        while (n > s && s >= e) {
-            total += arr[s];
-            while (total >= S) {
-                ans = Math.min(s - e + 1, ans);
-                e++;
-                total -= arr[e];
+        for (int L=0; L<n; L++) {
+            while (R + 1 < n && cnt < s) {
+                R++;
+                cnt += arr[R];
             }
-            s++;
+
+            if (cnt >= s) {
+                ans = Math.min(ans, R - L + 1);
+            }
+            cnt -= arr[L];
         }
         if (ans == n+1) {
             System.out.println(-1); 
