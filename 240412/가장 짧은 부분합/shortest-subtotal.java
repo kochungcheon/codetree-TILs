@@ -17,7 +17,7 @@ public class Main {
 
         int s = 0;
         int e = 0;
-        while (n > s) {
+        while (n > s && n > e) {
             total += arr[s];
             while (total >= S) {
                 ans = Math.min(s - e + 1, ans);
