@@ -23,7 +23,7 @@ public class Main {
 
         int ans = 0;
 
-        int R = 2 * M + 1;
+        int R = 2 * M + 2;
         int L = 0;
         while (R < 1000002) { 
             if (prefix[R] - prefix[L] > ans) {
