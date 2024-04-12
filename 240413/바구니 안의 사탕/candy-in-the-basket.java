@@ -16,7 +16,7 @@ public class Main {
             arr[w] += candy; 
         }
 
-        int[] prefix = new int[1000002];
+        int[] prefix = new int[1000010];
         for (int i = 0; i <= 1000000; i++) {
             prefix[i + 1] = prefix[i] + arr[i];
         }
@@ -25,7 +25,7 @@ public class Main {
 
         int R = 2 * K;
         int L = 0;
-        while (R < 1000001) { 
+        while (R < 1000002) { 
             if (prefix[R + 1] - prefix[L] > ans) {
                 ans = prefix[R + 1] - prefix[L];
             }
