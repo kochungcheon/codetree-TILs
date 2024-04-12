@@ -6,7 +6,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int K = Integer.parseInt(st.nextToken());
 
         int[] arr = new int[1000001];
         for (int i = 0; i < N; i++) {
@@ -17,13 +17,13 @@ public class Main {
         }
 
         int[] prefix = new int[1000002];
-        for (int i = 0; i <= 1000000; i++) {
+        for (int i = 0; i < 1000001; i++) {
             prefix[i + 1] = prefix[i] + arr[i];
         }
 
         int ans = 0;
 
-        int R = 2 * M + 2;
+        int R = 2 * K + 1;
         int L = 0;
         while (R < 1000002) { 
             if (prefix[R] - prefix[L] > ans) {
