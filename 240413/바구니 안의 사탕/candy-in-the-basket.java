@@ -23,15 +23,17 @@ public class Main {
 
         int ans = 0;
 
-        int R = 2 * K + 1;
+        int R = K; 
         int L = 0;
-        while (R < 1000002) { 
-            if (prefix[R] - prefix[L] > ans) {
-                ans = prefix[R] - prefix[L];
-            }
-            L++;
-            R++;
+        while (R <= 1000000) {
+  
+        if (R - L == 2 * K) { 
+            int currentCandies = prefix[R + 1] - prefix[L]; 
+            ans = Math.max(ans, currentCandies);
+            L++; // Move the window forward
         }
+        R++;
+}
         System.out.println(ans);
     }
 }
