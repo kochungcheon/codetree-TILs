@@ -8,7 +8,7 @@ public class Main {
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[4000001];
+        int[] arr = new int[4000010];
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             int candy = Integer.parseInt(st.nextToken());
@@ -16,8 +16,8 @@ public class Main {
             arr[w] += candy; 
         }
 
-        int[] prefix = new int[4000002];
-        for (int i = 0; i < 4000001; i++) {
+        int[] prefix = new int[4000011];
+        for (int i = 0; i < 4000010; i++) {
             prefix[i + 1] = prefix[i] + arr[i];
         }
 
@@ -25,7 +25,7 @@ public class Main {
 
         int R = 2 * K + 1;
         int L = 0;
-        while (R < 4000001) { 
+        while (R < 4000010) { 
             if (prefix[R] - prefix[L] > ans) {
                 ans = prefix[R] - prefix[L];
             }
