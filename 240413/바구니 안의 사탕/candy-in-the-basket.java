@@ -14,7 +14,7 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int candy = Integer.parseInt(st.nextToken());
             int w = Integer.parseInt(st.nextToken()); 
-            arr[w] = candy;
+            arr[w] += candy;
         }
 
         int[] prefix = new int[1000002];
