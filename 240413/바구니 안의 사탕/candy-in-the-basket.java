@@ -17,23 +17,21 @@ public class Main {
         }
 
         int[] prefix = new int[1000002];
-        for (int i = 0; i < 1000001; i++) {
+        for (int i = 0; i <= 1000000; i++) {
             prefix[i + 1] = prefix[i] + arr[i];
         }
 
         int ans = 0;
 
-        int R = K; 
+        int R = 2 * K;
         int L = 0;
-        while (R <= 1000000) {
-  
-        if (R - L == 2 * K) { 
-            int currentCandies = prefix[R + 1] - prefix[L]; 
-            ans = Math.max(ans, currentCandies);
-            L++; // Move the window forward
+        while (R < 1000001) { 
+            if (prefix[R + 1] - prefix[L] > ans) {
+                ans = prefix[R + 1] - prefix[L];
+            }
+            L++;
+            R++;
         }
-        R++;
-}
         System.out.println(ans);
     }
 }
