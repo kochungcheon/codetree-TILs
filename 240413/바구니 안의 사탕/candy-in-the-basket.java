@@ -24,8 +24,8 @@ public class Main {
 
         int ans = 0;
 
-        int R = 2 * M + 2;
-        int L = 1;
+        int R = 2 * M + 1;
+        int L = 0;
         while (1000002 > R) {
             if (prefix[R] - prefix[L] > ans) {
                 ans = prefix[R] - prefix[L];
