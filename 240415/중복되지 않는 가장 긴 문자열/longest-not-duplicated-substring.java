@@ -17,8 +17,8 @@ public class Main {
             if (arr[n] >= start) {
                 start = arr[n];
             }
-            arr[n] = i;
-            ans = Math.max(ans, i - start);
+            arr[n] = i + 1;
+            ans = Math.max(ans, i - start + 1);
         }
 
         System.out.println(ans); 
