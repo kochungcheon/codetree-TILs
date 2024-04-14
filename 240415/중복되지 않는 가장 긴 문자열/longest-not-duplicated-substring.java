@@ -6,23 +6,25 @@ public class Main {
         // 여기에 코드를 작성해주세요.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String str = br.readLine();
-
-        int[] count = new int[26];
-        Arrays.fill(count, -1);
+        int[] arr = new int[26];
+        Arrays.fill(arr, -1); 
+        
         int ans = 0;
-        int tmp = 0;
-        for (int i=0; i<str.length(); i++) {
+        int start = 0;
+
+        for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
-            int n = c - 97;
-            if (count[n] == -1) {
-                tmp++;
-                count[n] = i + 1;
-            } else {
-                tmp -= count[n];
-                tmp++;
+            int index = c - 'a';
+
+            if (arr[index] >= start) {
+                start = arr[index] + 1;
             }
-            ans = Math.max(tmp, ans);
+
+            arr[index] = i;
+
+            ans = Math.max(ans, i - start + 1);
         }
-        System.out.println(ans);
+
+        System.out.println(ans); 
     }
 }
