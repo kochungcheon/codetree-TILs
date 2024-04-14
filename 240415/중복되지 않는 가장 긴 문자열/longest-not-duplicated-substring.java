@@ -12,16 +12,12 @@ public class Main {
         int ans = 0;
         int start = 0;
 
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-            int index = c - 'a';
-
-            if (arr[index] >= start) {
-                start = arr[index];
+        for (int i=0; i<str.length(); i++) {
+            int n = str.charAt(i) - 'a';
+            if (arr[n] >= start) {
+                start = arr[n];
             }
-
-            arr[index] = i;
-
+            arr[n] = i;
             ans = Math.max(ans, i - start);
         }
 
