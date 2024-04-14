@@ -8,13 +8,13 @@ public class Main {
         String str = br.readLine();
 
         int[] count = new int[26];
-
+        Arrays.fill(count, -1);
         int ans = 0;
         int tmp = 0;
         for (int i=0; i<str.length(); i++) {
             char c = str.charAt(i);
             int n = c - 97;
-            if (count[n] == 0) {
+            if (count[n] == -1) {
                 tmp++;
                 count[n] = i + 1;
             } else {
