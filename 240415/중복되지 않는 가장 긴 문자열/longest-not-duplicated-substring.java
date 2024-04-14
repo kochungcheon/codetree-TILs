@@ -17,12 +17,12 @@ public class Main {
             int index = c - 'a';
 
             if (arr[index] >= start) {
-                start = arr[index] + 1;
+                start = arr[index];
             }
 
             arr[index] = i;
 
-            ans = Math.max(ans, i - start + 1);
+            ans = Math.max(ans, i - start);
         }
 
         System.out.println(ans); 
