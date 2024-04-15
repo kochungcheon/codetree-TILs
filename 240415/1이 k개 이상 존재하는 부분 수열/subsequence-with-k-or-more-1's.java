@@ -42,6 +42,12 @@ public class Main {
             }
         }
 
+        if (R == n) {
+            if (k == 1 && one[0] == 1) {
+                ans = 1;
+            }
+        }
+
         if (ans == Integer.MAX_VALUE) {
             System.out.println(-1);
         } else {
