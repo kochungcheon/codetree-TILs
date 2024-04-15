@@ -30,7 +30,7 @@ public class Main {
         int R = 1;
 
         int ans = Integer.MAX_VALUE;
-        while (R >= L && n > R) {
+        while (R >= L && n >= R) {
             int nowK = prefix[R] - prefix[L];
             if (nowK >= k) {
                 ans = Math.min(ans, R - L);
@@ -39,12 +39,6 @@ public class Main {
                 R++;
             } else {
                 L++;
-            }
-        }
-
-        if (R == n) {
-            if (k == 1 && one[0] == 1) {
-                ans = 1;
             }
         }
 
