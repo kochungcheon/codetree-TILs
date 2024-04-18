@@ -1,29 +1,39 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static final int MAX_LENGTH = 100000;
-    public static final int NUM_SELECT = 3;
-    public static int[] arr = new int[MAX_LENGTH + 1];
-    public static int[][] DP = new int[NUM_SELECT + 2][MAX_LENGTH + 1];
+    static int N;
+    static int[] arr;
+    static int[] L;
+    static int[] R;
+    public static void main(String[] args) throws IOException {
+        // 여기에 코드를 작성해주세요.
+        input();
+        calAns();
+    }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        for(int i = 1 ; i <= n ; i++){
-            arr[i] = sc.nextInt();
+    static void input() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        N = Integer.parseInt(br.readLine());
+        arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        L = new int[N];
+        L[0] = arr[0];
+        for (int i=1; i<N; i++) {
+            L[i] = Math.max(L[i-1], arr[i]);
         }
         
-        DP[1][1] = arr[1];
-        for(int i = 1 ; i <= NUM_SELECT ; i++){
-            for(int j = 2 * i - 1 ; j <= n ; j++){
-                if(j < 2){
-                    DP[i][j] = arr[j];
-                    continue;
-                }
-                DP[i][j] = Math.max(DP[i][j - 1], DP[i - 1][j - 2] + arr[j]);
-            }
+        R = new int[N];
+        R[N-1] = arr[N-1];
+        for (int i=N-2; i >=0; i--) {
+            R[i] = Math.max(R[i+1], arr[i]);
         }
+    }
 
-        System.out.println(DP[NUM_SELECT][n]);
+    static void calAns() {
+        int ans = 0;
+        for (int i=2; i<N-2; i++) {
+            ans = Math.max(ans, L[i-2] + arr[i] + R[i+2]);
+        }
+        System.out.println(ans);
     }
 }
