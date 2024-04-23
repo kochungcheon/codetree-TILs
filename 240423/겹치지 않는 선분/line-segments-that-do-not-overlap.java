@@ -56,7 +56,7 @@ public class Main {
         int ans = 0;
 
         for (int i=0; i<N; i++) {
-            if (R[i] == L[i]) {
+            if (R[i] >= L[i]) {
                 ans++;
             }
         }
