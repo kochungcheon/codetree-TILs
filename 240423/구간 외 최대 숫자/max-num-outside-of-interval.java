@@ -17,13 +17,12 @@ public class Main {
 
         L[0] = arr[0];
         R[q - 1] = arr[q-1];
-        for (int i=1; i<n; i++){
+        for (int i=1; i<q; i++){
             L[i] = Math.max(L[i-1], arr[i]);
             R[q-i-1] = Math.max(arr[q-i-1], R[q - i]); 
         }
 
         for (int i=0; i<n; i++) {
-            int ans = 0;
             st = new StringTokenizer(br.readLine());
             int s = Integer.parseInt(st.nextToken()) - 1;
             int e = Integer.parseInt(st.nextToken()) - 1;
