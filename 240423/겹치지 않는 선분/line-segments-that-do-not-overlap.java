@@ -40,7 +40,7 @@ public class Main {
         R = new int[N];
     
 
-        arr.stream()
+        arr = arr.stream()
                  .sorted(Comparator.comparingInt((Pair p) -> p.x)
                                      .thenComparingInt(p -> p.y))
                  .collect(Collectors.toList());
