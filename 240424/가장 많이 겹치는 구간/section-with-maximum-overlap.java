@@ -20,14 +20,12 @@ public class Main {
         int ans = 0;
 
         int[] prefix = new int[200010];
-        for (int i=0; i<20001; i++) {
+        for (int i=0; i<200009; i++) {
             prefix[i+1] = prefix[i] + arr[i+1];
             ans = Math.max(ans, prefix[i+1]);
         }
         
         System.out.println(ans);
-
-
 
     }
 }
