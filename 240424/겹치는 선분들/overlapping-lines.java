@@ -52,18 +52,30 @@ public class Main {
         nodes = nodes.stream().sorted(Comparator.comparing(Node::getX)).collect(Collectors.toList());
 
         int ans = 0;
-        int sumVal = 0;
+        start = 0;
 
         for (int i=0; i<2*N; i++) {
             int x = nodes.get(i).x;
             int v = nodes.get(i).v;
             int index = nodes.get(i).index;
-
-            sumVal += v;
-
-            if (sumVal >= K) {
-                ans++;
+            
+            if (v == 1) {
+                if (segs.size() == K-1) {
+                    start = x;
+                }
+                segs.add(index);
+            } else {
+                if (segs.size() == K) {
+                    ans += x - start;
+                }
+                segs.remove(index);
+                if (segs.size() == K-1) {
+                    start = x;
+                }
             }
+            
+
+            
         }
 
         System.out.println(ans);
