@@ -16,6 +16,7 @@ public class Main {
         }
     }
     static List<Node> nodes = new ArrayList<>();
+    static Set<Integer> segs = new HashSet<>();
     public static void main(String[] args) throws IOException {
         // 여기에 코드를 작성해주세요.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -39,7 +40,10 @@ public class Main {
         for (Node node : nodes) {
             valSum += node.v;
             if (node.v == 1) {
-                ans = Math.max(ans, valSum);
+                segs.add(node.index);
+                ans = Math.max(ans, segs.size());
+            } else {
+                segs.remove(node.index);
             }
         }
 
