@@ -14,6 +14,10 @@ public class Main {
         public int getX() {
             return this.x;
         }
+
+        public int getV() {
+            return this.v;
+        }
     }
     static List<Node> nodes = new ArrayList<>();
     static Set<Integer> segs = new HashSet<>();
@@ -25,14 +29,17 @@ public class Main {
         StringTokenizer st;
         for (int i=0; i<N; i++){
             st = new StringTokenizer(br.readLine());
-            int a = Integer.parseInt(st.nextToken()) * 2;
-            int b = Integer.parseInt(st.nextToken()) * 2 + 1;
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
 
             nodes.add(new Node(a, 1, i));
             nodes.add(new Node(b, -1, i));
         }
 
-        nodes = nodes.stream().sorted(Comparator.comparing(Node::getX)).collect(Collectors.toList());
+        nodes = nodes.stream()
+            .sorted(Comparator.comparing(Node::getX)
+            .thenComparing(Node::getV, Comparator.reverseOrder())) 
+            .collect(Collectors.toList());
 
         int valSum = 0;
         int ans = 0;
