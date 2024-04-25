@@ -43,7 +43,7 @@ public class Main {
             int v = nodes.get(i).v;
             int idx = nodes.get(i).index;
 
-            if (start == 0 && valSum == 0 && v == 1) {
+            if (start == 0 && valSum == 0) {
                 start = x;
             }
 
