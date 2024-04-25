@@ -48,8 +48,7 @@ public class Main {
         }
 
         nodes = nodes.stream()
-                     .sorted(Comparator.comparingInt(Node::getTime)
-                                       .thenComparingInt(Node::getType))
+                     .sorted(Comparator.comparingInt(Node::getTime))
                      .collect(Collectors.toList());
 
         for (Node node : nodes) {
@@ -61,7 +60,6 @@ public class Main {
             }
         }
 
-        // Print results
         for (int i = 0; i < N; i++) {
             System.out.print(ans[i] + " ");
         }
