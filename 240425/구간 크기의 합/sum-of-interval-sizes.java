@@ -35,7 +35,7 @@ public class Main {
         nodes = nodes.stream().sorted(Comparator.comparing(Node::getX)).collect(Collectors.toList());
 
         int ans = 0;
-        int start = nodes.get(0).x;
+        int start = 0;
         int valSum = 0;
 
         for (int i=0; i< N * 2; i++) {
