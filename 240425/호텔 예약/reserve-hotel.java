@@ -38,7 +38,9 @@ public class Main {
 
         for (Node node : nodes) {
             valSum += node.v;
-            ans = Math.max(ans, valSum);
+            if (node.v == 1) {
+                ans = Math.max(ans, valSum);
+            }
         }
 
         System.out.println(ans);
