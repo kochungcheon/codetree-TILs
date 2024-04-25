@@ -24,8 +24,8 @@ public class Main {
         StringTokenizer st;
         for (int i=0; i<N; i++){
             st = new StringTokenizer(br.readLine());
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
+            int a = Integer.parseInt(st.nextToken()) * 2;
+            int b = Integer.parseInt(st.nextToken()) * 2 - 1;
 
             nodes.add(new Node(a, 1, i));
             nodes.add(new Node(b, -1, i));
