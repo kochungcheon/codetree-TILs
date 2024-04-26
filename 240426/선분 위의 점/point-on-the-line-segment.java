@@ -43,7 +43,7 @@ public class Main {
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
         arr = Arrays.stream(br.readLine().split(" ")).mapToLong(Long::parseLong).toArray();
-
+        Arrays.sort(arr);
         for (int i=0; i<m; i++) {
             st = new StringTokenizer(br.readLine());
             long s = Integer.parseInt(st.nextToken());
