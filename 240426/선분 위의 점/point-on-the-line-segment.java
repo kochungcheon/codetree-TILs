@@ -5,20 +5,20 @@ public class Main {
     static int n, m;
     static long[] arr;
 
-    // 작거나 같은 것중 가장 큰 것
     static int findR(long target) {
-        int s = 0; int e = n - 1;
-        int idx = -1;
-        while (e >= s) {
-            int mid = (e + s) / 2;
-            if (arr[mid] <= target) {
-                s = mid + 1;
-                idx = Math.max(idx, mid);
-            } else {
-                e = mid - 1;
+        int left = 0, right = n - 1;
+        int minIdx = n;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if(arr[mid] > target) {
+                right = mid - 1;
+                minIdx = Math.min(minIdx, mid);
             }
+            else
+                left = mid + 1;
         }
-        return idx != -1 ? idx + 1 : -1;
+    
+        return minIdx;
     }
 
     // 크거나 같은 것 중 가작 작은 것
@@ -48,7 +48,7 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             long s = Integer.parseInt(st.nextToken());
             long e = Integer.parseInt(st.nextToken());
-            // System.out.println(findR(e) + " " + findL(s));
+
             int idxE = findR(e);
             int idxS = findL(s);
             if (idxE == -1 || idxS == n) {
@@ -57,9 +57,6 @@ public class Main {
             else {
                 System.out.println(findR(e) - findL(s));
             }
-            
-            
-            
         }
     }
 }
