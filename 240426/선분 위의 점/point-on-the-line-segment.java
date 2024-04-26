@@ -51,12 +51,7 @@ public class Main {
 
             int idxE = findR(e);
             int idxS = findL(s);
-            if (idxE == -1 || idxS == n) {
-                System.out.println(0);
-            }
-            else {
-                System.out.println(findR(e) - findL(s));
-            }
+            System.out.println(findR(e) - findL(s));
         }
     }
 }
