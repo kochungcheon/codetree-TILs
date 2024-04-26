@@ -4,7 +4,7 @@ import java.util.stream.*;
 public class Main {
     static long m; 
     static int a, b;
-    static int find(int target) {
+    static int find(long target) {
         int cnt = 0;
         long s = 1; long e = m;
         
@@ -27,12 +27,12 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         m = Long.parseLong(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
+        long a = Long.parseLong(st.nextToken());
+        long b = Long.parseLong(st.nextToken());
 
         int ansMax = -1;
         int ansMin = 100;
-        for (int i=a; i<=b; i++) {
+        for (long i=a; i<=b; i++) {
             int cnt = find(i);
             ansMin = Math.min(ansMin, cnt);
             ansMax = Math.max(ansMax, cnt);
