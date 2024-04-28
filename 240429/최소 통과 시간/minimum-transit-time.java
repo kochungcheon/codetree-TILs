@@ -3,11 +3,11 @@ import java.io.*;
 
 public class Main {
     static int n, m;
-    static int ans = Integer.MAX_VALUE;
+    static long ans = Long.MAX_VALUE;
     static int[] arr;
 
-    static boolean check(int target) {
-        int cnt = 0;
+    static boolean check(long target) {
+        long cnt = 0;
         for (int a : arr) {
             cnt += target / a;
         }
@@ -29,11 +29,11 @@ public class Main {
             arr[i] = Integer.parseInt(br.readLine());
         }        
 
-        int s = 1;
-        int e = 1000000000;
+        long s = 1;
+        long e = Long.MAX_VALUE;
 
         while ( e >= s) {
-            int mid = s + (e - s) / 2;
+            long mid = s + (e - s) / 2;
             if (check(mid)) {
                 e = mid - 1;
                 ans = Math.min(ans, mid);
