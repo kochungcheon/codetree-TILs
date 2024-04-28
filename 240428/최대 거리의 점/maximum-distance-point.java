@@ -28,6 +28,8 @@ public class Main {
             arr[i] = Integer.parseInt(br.readLine());
         }
 
+        Arrays.sort(arr);
+
         int s = 1;
         int e = 1000000000;
 
