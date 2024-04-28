@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Main {
     static int N;
-    static int ans = Integer.MAX_VALUE;
-    static boolean check(int target) {
+    static long ans = Integer.MAX_VALUE;
+    static boolean check(long target) {
         return N <= target - target / 3 - target / 5 + target / 15;
     }
     public static void main(String[] args) throws IOException {
@@ -13,11 +13,11 @@ public class Main {
 
         N = Integer.parseInt(br.readLine());
 
-        int s = 1;
-        int e = Integer.MAX_VALUE;
+        long s = 1;
+        long e = Integer.MAX_VALUE;
         
         while (e >= s) {
-            int mid = (s + e) / 2;
+            long mid = (s + e) / 2;
 
             if (check(mid)) {
                 e = mid - 1;
