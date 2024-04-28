@@ -5,7 +5,7 @@ public class Main {
     static long ans = 0;
     static void choose(long perpose) {
         long s = 1;
-        long e = 100000000;
+        long e = Integer.MAX_VALUE;
 
         while (e >= s) {
             long mid = (s + e) / 2;
