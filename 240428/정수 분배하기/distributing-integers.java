@@ -29,7 +29,8 @@ public class Main {
 
         int s = 1;
         int e = 100000;
-        int ans = 1;
+        int ans = 0;
+
         while (e >= s) {
             int mid = (s + e) / 2;
             if (check(mid)) {
