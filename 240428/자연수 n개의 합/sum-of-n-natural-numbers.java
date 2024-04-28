@@ -9,7 +9,7 @@ public class Main {
 
         while (e >= s) {
             long mid = (s + e) / 2;
-            if ((mid / 2) * (mid + 1)   <= perpose) {
+            if ((mid) * (mid + 1) / 2 <= perpose) {
                 ans = Math.max(ans, mid);
                 s = mid + 1;
             } else {
