@@ -17,16 +17,12 @@ public class Main {
     static Pair arr[];
     static boolean check(int target) {
         int preS = arr[0].s;
-        int preE = arr[0].e;
         for (int i=1; i<n; i++) {
             int s = arr[i].s;
             int e = arr[i].e;
             // target이 너무 큰 경우
             if (preS + target > e) return false;
-            // target애ㅣ 너무 작은 경우
-            if (preE + target < s) return false;
             preS = Math.max(preS + target, s);
-            preE = Math.min(preE + target, e);
         }
         return true;
     }
