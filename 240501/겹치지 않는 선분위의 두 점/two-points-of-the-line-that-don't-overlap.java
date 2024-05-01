@@ -19,26 +19,21 @@ public class Main {
     static Pair[] arr; 
     static long ans = 0;
     static boolean check(long target) {
-    int placedPoints = 0; 
-    long lastPosition = -Long.MAX_VALUE; 
+        int cnt = 0;
+        long start = -100000;
 
-    for (int i = 0; i < M; i++) {
-        long start = arr[i].x;
-        long end = arr[i].y;
-        
-        long firstPossiblePosition = Math.max(start, lastPosition + target);
+        for (int i=0; i<M; i++) {
+            long x = arr[i].x;
+            long y = arr[i].y;
 
-        if (firstPossiblePosition <= end) {
-            long positions = 1 + (end - firstPossiblePosition) / target;
-            placedPoints += positions;
-            lastPosition = firstPossiblePosition + (positions - 1) * target;
-            if (placedPoints >= N) {
-                return true;
+            while(start + target <= y) {
+                cnt++;
+                start = Math.max(start + target, x);
+
+                if (cnt >= N) break;
             }
         }
-    }
-    
-    return false;
+        return cnt >= N;
     }
 
     public static void main(String[] args) throws IOException {
