@@ -20,7 +20,7 @@ public class Main {
     static long ans = 0;
     static boolean check(long target) {
         int cnt = 0;
-        long start = -100000;
+        long start = -(long)1e18;
 
         for (int i=0; i<M; i++) {
             long x = arr[i].x;
