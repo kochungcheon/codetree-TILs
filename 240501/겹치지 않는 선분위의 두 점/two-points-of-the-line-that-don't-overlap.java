@@ -1,18 +1,30 @@
 import java.util.*;
 import java.io.*;
+import java.util.stream.*;
 
 public class Main {
     static int N, M;
-    static long[] arrX;
-    static long[] arrY;
+    static class Pair {
+        long x;
+        long y;
+        public Pair(long x, long y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public long getX() {
+            return x;
+        }
+    }
+    static Pair[] arr; 
     static long ans = 0;
     static boolean check(long target) {
     int placedPoints = 0; 
     long lastPosition = -Long.MAX_VALUE; 
 
     for (int i = 0; i < M; i++) {
-        long start = arrX[i];
-        long end = arrY[i];
+        long start = arr[i].x;
+        long end = arr[i].y;
         
         long firstPossiblePosition = Math.max(start, lastPosition + target);
 
@@ -38,14 +50,14 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        arrX = new long[M];
-        arrY = new long[M];
+        arr = new Pair[M];
 
         for (int i=0; i<M; i++) {
             st = new StringTokenizer(br.readLine());
-            arrX[i] = Long.parseLong(st.nextToken());
-            arrY[i] = Long.parseLong(st.nextToken());
+            arr[i] = new Pair(Long.parseLong(st.nextToken()), Long.parseLong(st.nextToken()));
         }
+
+        Arrays.sort(arr, Comparator.comparingLong(Pair::getX));
 
         long s = 1;
         long e = Long.MAX_VALUE;
