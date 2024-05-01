@@ -47,7 +47,7 @@ public class Main {
             arrY[i] = Long.parseLong(st.nextToken());
         }
 
-        long s = 0;
+        long s = 1;
         long e = Long.MAX_VALUE;
 
         while (e >= s) {
