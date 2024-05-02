@@ -21,7 +21,7 @@ public class Main {
             arr[i] = Integer.parseInt(br.readLine());
         }
         int ans = 0;
-        for (int k=n; k>=1; k--) {
+        for (int k=1; k<=n; k++) {
             int time = 0;
             int mt = 0;
             pq = new PriorityQueue<>();
@@ -39,12 +39,9 @@ public class Main {
 
             if (mt <= tMax) {
                 ans = k;
-            } 
-            else {
                 break;
-            }
+            } 
         }
-
         System.out.println(ans);
     }
 }
