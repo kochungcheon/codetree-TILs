@@ -8,7 +8,7 @@ public class Main {
         int cnt = 1;
         int compare = arr[0];
         for (int a : arr) {
-            if (a - compare > target) {
+            if (a - compare > target * 2) {
                 cnt++;
                 compare = a;
             }
@@ -25,6 +25,7 @@ public class Main {
         // 폭탄 개수
         K = Integer.parseInt(st.nextToken());
 
+        arr = new int[N];
         for (int i=0; i<N; i++) {
             arr[i] = Integer.parseInt(br.readLine());
         }
