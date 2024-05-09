@@ -9,7 +9,7 @@ public class Main {
         int cnt = 1;
         int box = 0;
         for (int i=0; i<N; i++) {
-            if (box > target) return false;
+            if (arr[i] > target) return false;
             if (box + arr[i] > target) {
                 cnt++;
                 box = 0;
