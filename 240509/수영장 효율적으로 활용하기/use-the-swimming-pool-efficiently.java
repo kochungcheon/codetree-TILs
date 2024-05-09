@@ -28,7 +28,7 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
         arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-        int s = 1;
+        int s = 0;
         int e = Integer.MAX_VALUE;
 
         int ans = Integer.MAX_VALUE;
