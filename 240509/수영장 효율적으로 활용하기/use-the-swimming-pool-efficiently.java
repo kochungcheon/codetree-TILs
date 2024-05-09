@@ -29,9 +29,9 @@ public class Main {
         arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
         int s = 1;
-        int e = 100000;
+        int e = Integer.MAX_VALUE;
 
-        int ans = 100000;
+        int ans = Integer.MAX_VALUE;
         while ( e >= s) {
             int mid = s + (e - s) / 2;
             if (check(mid)) {
